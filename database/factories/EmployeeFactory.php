@@ -27,7 +27,7 @@ class EmployeeFactory extends Factory
             'name' => $this->faker->name,
             'identification' => $this->faker->regexify('[A-Za-z0-9]{100}'),
             'birth' => $this->faker->dateTime(),
-            'salary' => $this->faker->numberBetween(-10000, 10000),
+            'salary' => $this->faker->randomNumber(),
             'material_status' => $this->faker->randomElement(["single","married","divorced"]),
             'bonus' => $this->faker->randomFloat(2, 0, 999999.99),
             'order' => $this->faker->randomNumber(),

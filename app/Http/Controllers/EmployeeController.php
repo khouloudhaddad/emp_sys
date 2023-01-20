@@ -13,7 +13,13 @@ class EmployeeController extends Controller
      */
     public function test(Request $request)
     {
-        $employees = Employee::all();
+        $salary = $request->salary;
+        $name = $request->name;
+        $employees = Employee::where('salary','>=', $salary)
+        ->where('name','like','%'. $name.'%')
+        ->orderBy('bonus')
+        ->limit(3)->get();
+
         dd($employees);
     }
 }

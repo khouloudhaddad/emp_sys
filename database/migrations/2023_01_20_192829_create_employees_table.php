@@ -20,7 +20,7 @@ class CreateEmployeesTable extends Migration
             $table->string('name', 100);
             $table->string('identification', 100);
             $table->dateTime('birth');
-            $table->integer('salary');
+            $table->unsignedInteger('salary');
             $table->enum('material_status', ["single","married","divorced"]);
             $table->decimal('bonus', 8, 2)->nullable();
             $table->unsignedInteger('order')->default(1)->index();

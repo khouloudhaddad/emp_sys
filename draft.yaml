@@ -3,7 +3,7 @@ models:
     name: string:100
     identification: string:100
     birth: datetime
-    salary: integer
+    salary: integer unsigned
     material_status: enum:single,married,divorced
     bonus: decimal:8,2 nullable
     order: unsignedinteger default:1 index
@@ -32,5 +32,5 @@ seeders: Project, ContactInfo, Department
 controllers:
   Employee:
     test:
-      query: all
+      query: where:salary where:name order:bonus limit:3
   # ...
