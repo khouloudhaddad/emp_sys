@@ -1,7 +1,7 @@
 created:
     - database/factories/EmployeeFactory.php
-    - database/migrations/2023_01_20_174747_create_employees_table.php
+    - database/migrations/2023_01_20_182438_create_employees_table.php
     - app/Models/Employee.php
 models:
     User: { name: string, email: 'string:250', email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
-    Employee: { name: 'string:100', identification: 'string:100', birth: 'datetime:100', salary: integer }
+    Employee: { name: 'string:100', identification: 'string:100', birth: datetime, salary: integer, material_status: 'enum:single,married,divorced', bonus: 'decimal:8,2 nullable', order: 'unsignedinteger default:1 index' }

@@ -2,8 +2,11 @@ models:
   Employee:
     name: string:100
     identification: string:100
-    birth: datetime:100
+    birth: datetime
     salary: integer
+    material_status: enum:single,married,divorced
+    bonus: decimal:8,2 nullable
+    order: unsignedinteger default:1 index
 
 controllers:
   # ...
