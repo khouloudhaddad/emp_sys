@@ -28,3 +28,6 @@ Route::get('employee/test', [App\Http\Controllers\EmployeeController::class, 'te
 
 
 Route::get('employee/test', [App\Http\Controllers\EmployeeController::class, 'test']);
+
+
+Route::get('employee/test', [App\Http\Controllers\EmployeeController::class, 'test']);

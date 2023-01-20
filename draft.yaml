@@ -34,5 +34,6 @@ controllers:
     test:
       #query: where:salary where:name order:bonus limit:3
       find: id
-      delete: employee
+      #delete: employee
+      dispatch: ComputeSalary with:employee
   # ...
