@@ -41,5 +41,8 @@ controllers:
       #notify: employee checkDetails with:project
       find: employee.id
       #respond: employee
-      render: employee.show with employee
+      #render: employee.show with employee
+      #save: employee
+      #send: ThankMail to:employeed.contactInfo.email
+      update: name, identification
   # ...

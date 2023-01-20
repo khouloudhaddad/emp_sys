@@ -13,8 +13,8 @@ class EmployeeController extends Controller
      */
     public function test(Request $request)
     {
-        $employee = Employee::find($request->id);
+        $employee = Employee::find($id);
 
-        return view('employee.show', compact('employee'));
+        $employee->update(['name' => $request->name, 'identification' => $request->identification]);
     }
 }

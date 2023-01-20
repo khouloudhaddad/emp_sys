@@ -16,14 +16,12 @@ class EmployeeControllerTest extends TestCase
     /**
      * @test
      */
-    public function test_displays_view()
+    public function test_behaves_as_expected()
     {
         $employee = Employee::factory()->create();
 
         $response = $this->get(route('employee.test'));
 
-        $response->assertOk();
-        $response->assertViewIs('employee.show');
-        $response->assertViewHas('employee');
+        $employee->refresh();
     }
 }
