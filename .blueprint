@@ -1,2 +1,27 @@
+created:
+    - app/Http/Controllers/EmployeeController.php
+    - database/factories/EmployeeFactory.php
+    - database/factories/ContactInfoFactory.php
+    - database/factories/DepartmentFactory.php
+    - database/factories/ProjectFactory.php
+    - database/migrations/2023_01_20_191717_create_employees_table.php
+    - database/migrations/2023_01_20_191718_create_contact_infos_table.php
+    - database/migrations/2023_01_20_191719_create_departments_table.php
+    - database/migrations/2023_01_20_191720_create_projects_table.php
+    - database/migrations/2023_01_20_191721_create_employee_project_table.php
+    - app/Models/Employee.php
+    - app/Models/ContactInfo.php
+    - app/Models/Department.php
+    - app/Models/Project.php
+    - database/seeders/ProjectSeeder.php
+    - database/seeders/ContactInfoSeeder.php
+    - database/seeders/DepartmentSeeder.php
+    - tests/Feature/Http/Controllers/EmployeeControllerTest.php
+updated:
+    - routes/web.php
 models:
     User: { name: string, email: 'string:250', email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Employee: { name: 'string:100', identification: 'string:100', birth: datetime, salary: integer, material_status: 'enum:single,married,divorced', bonus: 'decimal:8,2 nullable', order: 'unsignedinteger default:1 index', department_id: 'id foreign', relationships: { belongsToMany: Project, hasOne: ContactInfo } }
+    ContactInfo: { phone: 'string:100', address: 'string:100', email: 'string:100', relationships: { belongsTo: Employee } }
+    Department: { name: 'string:100', relationships: { hasMany: Employee } }
+    Project: { name: 'string:100', timestampstz: timestampsTz, softdeletestz: softDeletesTz, relationships: { belongsToMany: Employee } }

@@ -29,5 +29,8 @@ models:
       belongsToMany: Employee
 seeders: Project, ContactInfo, Department
 
-
+controllers:
+  Employee:
+    test:
+      query: all
   # ...
