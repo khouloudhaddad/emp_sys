@@ -33,7 +33,14 @@ controllers:
   Employee:
     test:
       #query: where:salary where:name order:bonus limit:3
-      find: id
+      #find: project.id
       #delete: employee
-      dispatch: ComputeSalary with:employee
+      #dispatch: ComputeSalary with:employee
+      #fire: FancyEvent with:employee
+      #flash: empoyee.name
+      #notify: employee checkDetails with:project
+      find: employee.id
+      redirect: employee.show with employee.id
+    showEmployee:
+      find: employee.id
   # ...

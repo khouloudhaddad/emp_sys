@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\ComputeSalary;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -14,8 +13,18 @@ class EmployeeController extends Controller
      */
     public function test(Request $request)
     {
-        $employee = Employee::find($request->id);
+        $employee = Employee::find($id);
 
-        ComputeSalary::dispatch($employee);
+        return redirect()->route('employee.show', [$employee.id]);
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showEmployee(Request $request)
+    {
+        $employee = Employee::find($request->id);
+        dd($employee->toArray());
     }
 }

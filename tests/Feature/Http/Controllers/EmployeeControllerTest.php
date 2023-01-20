@@ -2,10 +2,8 @@
 
 namespace Tests\Feature\Http\Controllers;
 
-use App\Jobs\ComputeSalary;
 use App\Models\Employee;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 
 /**
@@ -18,16 +16,23 @@ class EmployeeControllerTest extends TestCase
     /**
      * @test
      */
-    public function test_behaves_as_expected()
+    public function test_redirects()
     {
         $employee = Employee::factory()->create();
 
-        Queue::fake();
-
         $response = $this->get(route('employee.test'));
 
-        Queue::assertPushed(ComputeSalary::class, function ($job) use ($employee) {
-            return $job->employee->is($employee);
-        });
+        $response->assertRedirect(route('employee.show', [$employee.id]));
+    }
+
+
+    /**
+     * @test
+     */
+    public function showEmployee_behaves_as_expected()
+    {
+        $employee = Employee::factory()->create();
+
+        $response = $this->get(route('employee.showEmployee'));
     }
 }
