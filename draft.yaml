@@ -32,5 +32,7 @@ seeders: Project, ContactInfo, Department
 controllers:
   Employee:
     test:
-      query: where:salary where:name order:bonus limit:3
+      #query: where:salary where:name order:bonus limit:3
+      find: id
+      delete: employee
   # ...

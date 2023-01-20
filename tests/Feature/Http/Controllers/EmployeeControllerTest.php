@@ -16,10 +16,12 @@ class EmployeeControllerTest extends TestCase
     /**
      * @test
      */
-    public function test_behaves_as_expected()
+    public function test_deletes()
     {
-        $employees = Employee::factory()->count(3)->create();
+        $employee = Employee::factory()->create();
 
         $response = $this->get(route('employee.test'));
+
+        $this->assertModelMissing($employee);
     }
 }
