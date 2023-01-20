@@ -7,6 +7,27 @@ models:
     material_status: enum:single,married,divorced
     bonus: decimal:8,2 nullable
     order: unsignedinteger default:1 index
+    department_id: id foreign
+    relationships:
+      belongsToMany: Project
+      hasOne: ContactInfo
+  ContactInfo:
+    phone: string:100
+    address: string:100
+    email: string:100
+    relationships:
+      belongsTo: Employee
+  Department:
+    name: string:100
+    relationships:
+      hasMany: Employee
+  Project:
+    name: string:100
+    timestampsTz
+    softDeletesTz
+    relationships:
+      belongsToMany: Employee
+seeders: Project, ContactInfo, Department
 
-controllers:
+
   # ...
