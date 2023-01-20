@@ -40,7 +40,6 @@ controllers:
       #flash: empoyee.name
       #notify: employee checkDetails with:project
       find: employee.id
-      redirect: employee.show with employee.id
-    showEmployee:
-      find: employee.id
+      #respond: employee
+      render: employee.show with employee
   # ...

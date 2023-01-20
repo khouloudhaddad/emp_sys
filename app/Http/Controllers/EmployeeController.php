@@ -13,18 +13,8 @@ class EmployeeController extends Controller
      */
     public function test(Request $request)
     {
-        $employee = Employee::find($id);
-
-        return redirect()->route('employee.show', [$employee.id]);
-    }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function showEmployee(Request $request)
-    {
         $employee = Employee::find($request->id);
-        dd($employee->toArray());
+
+        return view('employee.show', compact('employee'));
     }
 }
